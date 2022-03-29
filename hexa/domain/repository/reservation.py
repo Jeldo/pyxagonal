@@ -1,12 +1,14 @@
-# Repository(Secondary Port) Interface
-from abc import ABC
+import abc
 
 from hexa.domain.model.reservation import Reservation
 
 
-class AbstractReservationRepository(ABC):
+# Repository(Secondary Port) Interface
+class AbstractReservationRepository(abc.ABC):
+    @abc.abstractmethod
     def create_reservation(self, reservation: Reservation):
         raise NotImplementedError
 
+    @abc.abstractmethod
     def list_reservations(self) -> list[Reservation]:
         raise NotImplementedError

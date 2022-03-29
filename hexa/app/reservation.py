@@ -1,14 +1,16 @@
-from abc import ABC
+import abc
 
 from hexa.domain.model.reservation import Reservation
 from hexa.domain.service.reservation import AbstractReservationService
 
 
 # API View (Primary Port) Interface
-class AbstractReservationAPIView(ABC):
+class AbstractReservationAPIView(abc.ABC):
+    @abc.abstractmethod
     def create_reservation(self, reservation: Reservation):
         raise NotImplementedError
 
+    @abc.abstractmethod
     def list_reservations(self) -> list[Reservation]:
         raise NotImplementedError
 
