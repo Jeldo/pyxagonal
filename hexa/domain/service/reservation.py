@@ -14,7 +14,7 @@ class AbstractReservationService(abc.ABC):
         raise NotImplementedError
 
 
-# Implement Abstract Class
+# Implementation of Abstract Class
 class ReservationService(AbstractReservationService):
     def __init__(self, reservation_repository: AbstractReservationRepository):
         self.reservation_repository: AbstractReservationRepository = reservation_repository

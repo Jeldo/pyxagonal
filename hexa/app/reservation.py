@@ -15,12 +15,11 @@ class AbstractReservationAPIView(abc.ABC):
         raise NotImplementedError
 
 
-# Implement Abstract Class
+# Implementation of Abstract Class
 class ReservationAPIView(AbstractReservationAPIView):
     def __init__(self, reservation_service: AbstractReservationService):
         self.reservation_service: AbstractReservationService = reservation_service
 
-    # 실제 파라미터는 도메인 모델이 아닌 gRPC, REST 등 클라이언트로부터의 통신 규약을 통해 받아오는 데이터
     def create_reservation(self, reservation: Reservation):
         print('create reservation in API View')
         self.reservation_service.create_reservation(reservation=reservation)
